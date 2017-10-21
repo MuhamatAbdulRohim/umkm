@@ -25,14 +25,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/style.css')}}">
     <link href="{{asset('admin/js/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" type="text/css" rel="stylesheet"
           media="screen,projection">
-    <link href="{{asset('admin/js/plugins/jvectormap/jquery-jvectormap.css')}}" type="text/css" rel="stylesheet"
-          media="screen,projection">
-    <link href="{{asset('admin/js/plugins/chartist-js/chartist.min.css')}}" type="text/css" rel="stylesheet"
-          media="screen,projection">
-    <link href="{{asset('admin/js/plugins/animate-css/animate.css')}}" type="text/css" rel="stylesheet"
-          media="screen,projection">
 
-    @yield('head-css')
+    @yield('head_css')
 
 </head>
 <body>
@@ -66,7 +60,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="orange-text text-darken-4" href="user-login.html">
+                        <a class="orange-text text-darken-4" href="/umkm">
                             <i class="mdi-action-exit-to-app"></i><b>&nbsp;&nbsp; Logout</b> </a>
                     </li>
                 </ul>
@@ -130,7 +124,8 @@
         <aside id="left-sidebar-nav">
             <ul id="slide-out" class="side side-nav fixed leftside-navigation">
 
-                <li class="bold"><a href="profil.html" class="waves-effect waves-cyan"><i
+                <li class="bold @if($menu == 'profile') active @endif"><a href="/adm"
+                                                                          class="waves-effect waves-cyan"><i
                                 class="light-blue-text text-darken-1 mdi-action-face-unlock"></i> Profile</a>
                 </li>
 
@@ -140,16 +135,30 @@
                                         class="light-blue-text text-darken-1 mdi-image-collections"></i> Galery</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="galery_add.html">Add</a></li>
-                                    <li><a href="galery_media.html">Media</a></li>
+                                    <li class="@if($menu == 'addgalery') active @endif"><a
+                                                href="/adm/add_galery">Add</a></li>
+                                    <li class="@if($menu == 'mygalery') active @endif"><a
+                                                href="/adm/my_galery">Media</a></li>
                                 </ul>
                             </div>
                         </li>
                     </ul>
                 </li>
 
-                <li class="bold"><a href="service.html" class="waves-effect waves-cyan"><i
-                                class="light-blue-text text-darken-1  mdi-action-account-child"></i> Services</a>
+                <li class="no-padding">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i
+                                        class="light-blue-text text-darken-1 mdi-action-account-child"></i> Service</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li class="@if($menu == 'addservice') active @endif"><a
+                                                href="/adm/add_service">Add</a></li>
+                                    <li class="@if($menu == 'myservice') active @endif"><a href="/adm/my_service">My
+                                            Service</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
 
                 <br><br>
@@ -164,22 +173,19 @@
                                 Aditional</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="slider.html">Slider</a></li>
+                                    <li class="@if($menu == 'slider') active @endif"><a href="/adm/slide">Slider</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
                     </ul>
                 </li>
             </ul>
-            <a href="#" data-activates="slide-out"
-               class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i
-                        class="mdi-navigation-menu"></i></a>
         </aside>
 
         <section id="content">
             @yield('content')
         </section>
-
     </div>
 </div>
 
@@ -193,11 +199,11 @@
 </footer>
 
 <script type="text/javascript" src="{{asset('admin/js/plugins/jquery-1.11.2.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/angular.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin/js/materialize.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin/js/main.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin/js/plugins/prism/prism.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin/js/plugins/chartjs/chart.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin/js/plugins/chartjs/chartjs-sample-chart.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin/js/plugins.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin/js/custom-script.js')}}"></script>
 

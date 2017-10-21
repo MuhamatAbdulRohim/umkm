@@ -1,10 +1,10 @@
-@extends('admin.master)
+@extends('admin.master')
 
 @section('content')
     <div class="container">
         <div id="profile-page" class="section">
             <div id="profile-page-content" class="row">
-                <div id="profile-page-sidebar" class="col s12 m4 row">
+                <div id="profile-page-sidebar" class="col s12 m6 row">
                     <div class="card light-blue z-depth-1">
                         <div class="card-content white-text">
                             <span class="card-title">My Profile</span>
@@ -49,9 +49,33 @@
                                 <div class="col s8 grey-text text-darken-4 right-align">089608560788</div>
                             </div>
                         </li>
+                        <li class="collection-item">
+                            <div class="row">
+                                <div class="col s4 grey-text darken-1"><i class="mdi-action-account-circle"></i>
+                                    Facebook
+                                </div>
+                                <div class="col s8 grey-text text-darken-4 right-align">https://www.facebook.com/</div>
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <div class="row">
+                                <div class="col s4 grey-text darken-1"><i class="mdi-action-account-circle"></i>
+                                    Instagram
+                                </div>
+                                <div class="col s8 grey-text text-darken-4 right-align">https://www.instagram.com/</div>
+                            </div>
+                        </li>
+                        <li class="collection-item">
+                            <div class="row">
+                                <div class="col s4 grey-text darken-1"><i class="mdi-action-account-circle"></i>
+                                    Twitter
+                                </div>
+                                <div class="col s8 grey-text text-darken-4 right-align">https://www.twitter.com/</div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <div id="profile-page-wall" class="col s12 m8">
+                <div id="profile-page-wall" class="col s12 m6">
                     <div class="card-panel z-depth-1">
                         <div class="row">
                             <form class="col s12">
@@ -104,8 +128,38 @@
                 </div>
             </div>
 
+            <div class="card light-blue z-depth-1">
+                <div class="card-content white-text">
+                    <span class="card-title">Additional Profile</span>
+                </div>
+            </div>
+
             <div id="profile-page-content" class="card-panel z-depth-1">
                 <form>
+                    <div class="input-field col s12">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input name="facebook" type="text">
+                        <label for="facebook">Facebook URL</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input name="instagram" type="text">
+                        <label for="instagram">Instagram URL</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input name="twitter" type="text">
+                        <label for="twitter">Twitter URL</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="mdi-maps-place prefix"></i>
+                        <input id="address" type="text">
+                        <label for="address">Address</label>
+                    </div>
+
                     <div class="input-field col s12">
                         <i class="mdi-action-info prefix"></i>
                         <textarea id="message5" class="materialize-textarea" length="600"></textarea>

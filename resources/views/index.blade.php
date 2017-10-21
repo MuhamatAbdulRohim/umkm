@@ -268,7 +268,7 @@ Contact Us
                 <div class="contact-address">
                     <h3>Alamat & Kontak</h3>
                     <p>{{$company->address}}</p>
-                    <p>{{$company->district}}, {{$company->province}}</p>
+                    <p>{{$company->city}}</p>
                     <p>{{$company->email}}</p>
                     <p>{{$company->handphone}}</p>
                 </div>

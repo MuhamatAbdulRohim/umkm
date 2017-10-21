@@ -1,0 +1,99 @@
+
+/*====================================================== LOADING ======================================================*/
+
+.page-loader {
+  position: fixed;
+  background: #ffffff;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  z-index: 9998;
+}
+
+.loader {
+  position: absolute;
+  border-left: 2px solid #039be5;
+  border-top: 2px solid #039be5;
+  border-right: 2px solid #039be5;
+  border-bottom: 2px solid #039be5;
+  height: 46px;
+  width: 46px;
+  left: 50%;
+  top: 50%;
+  margin: -23px 0 0 -23px;
+  text-indent: -9999em;
+  font-size: 10px;
+  z-index: 9999;
+  -webkit-animation: load 0.8s infinite linear;
+  -moz-animation: load 0.8s infinite linear;
+  ms-animation: load 0.8s infinite linear;
+  o-animation: load 0.8s infinite linear;
+  animation: load 0.8s infinite linear;
+}
+
+.loader,
+.loader:after {
+  border-radius: 20%;
+  width: 70px;
+  height: 70px;
+}
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+/*====================================================== HEADER ======================================================*/
+
+
+.logo-text {
+  font-size: 24px;
+  color: #039be5;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.text_position {
+  text-align: center;
+}
+
+
+/*====================================================== SIDEBAR ======================================================*/
+
+.side {
+  margin-top: 10px;
+}
+
+.aktif {
+  font-weight: bolder;
+  color: #039be5;
+  background: #e0e0e0;
+}
+
+
+/*====================================================== IMAGE ======================================================*/
+
+.size-image{
+  width: 40px;
+  height: 40px;
+}

@@ -178,12 +178,11 @@ Features
             </div>
             <!-- service item -->
             @foreach($service as $serv)
-                <div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
+                <div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms" style="margin-bottom: 3% !important;">
                     <div class="service-item">
                         <div class="service-icon">
-                            <i class="fa {{$serv->serviceCategories->icon}} fa-2x"></i>
+                            <i class="fa fa-bullhorn fa-2x"></i>
                         </div>
-
                         <div class="service-desc">
                             <h3>{{$serv->service_name}}</h3>
                             <p>{{$serv->description}}</p>
@@ -192,12 +191,6 @@ Features
                 </div>
                 <!-- end service item -->
             @endforeach
-
-            <div class="row">
-                <div class="col-md-12">
-                    {!! $service->render() !!}
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -241,12 +234,6 @@ Our Works
                     </figcaption>
                 </figure>
             @endforeach
-
-            <div class="row">
-                <div class="col-md-12">
-                    {!! $product->render() !!}
-                </div>
-            </div>
         </div>
     </div>
 

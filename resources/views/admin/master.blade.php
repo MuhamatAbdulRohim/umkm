@@ -8,17 +8,15 @@
     <meta name="description"
           content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
     <meta name="keywords" content="">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Admin-UMKM</title>
 
-    <!-- Favicons-->
-    <link rel="icon" href="{{asset('admin/images/favicon/favicon-32x32.png')}}" sizes="32x32">
-    <!-- Favicons-->
+    <link rel="icon" href="http://www.araydeveloper.com/images/ico/favicon.ico" sizes="32x32">
     <link rel="apple-touch-icon-precomposed" href="{{asset('admin/images/favicon/apple-touch-icon-152x152.png')}}">
-    <!-- For iPhone -->
     <meta name="msapplication-TileColor" content="#00bcd4">
     <meta name="msapplication-TileImage" content="{{asset('admin/images/favicon/mstile-144x144.png')}}">
-    <!-- For Windows Phone -->
-
 
     <link href="{{asset('admin/css/materialize.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="{{asset('admin/css/style.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
@@ -206,6 +204,14 @@
 <script type="text/javascript" src="{{asset('admin/js/plugins/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin/js/plugins.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('admin/js/custom-script.js')}}"></script>
+
+<script type="text/javascript">
+    jQuery.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 
 @stack('scripts')
 

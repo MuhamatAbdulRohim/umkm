@@ -10,7 +10,7 @@
 
         <div class="card light-blue z-depth-1">
             <div class="card-content white-text">
-                <span class="card-title">Add Galery</span>
+                <span class="card-title">Add Image for Slide</span>
                 <p>Images Size Maximum 1MB</p>
             </div>
         </div>
@@ -21,6 +21,14 @@
                     <i class="mdi-image-filter-1 small"></i>
                     <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="1M"/>
                     <div class="row">
+                        <div class="input-field">
+                            <input type="text" name="title">
+                            <label for="">Title</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="sub_title">
+                            <label for="">Sub Title</label>
+                        </div>
                         <div class="input-field col s12">
                             <button class="btn light-blue darken-1 waves-effect waves-light right" type="submit"
                                     name="action">Submit
@@ -36,6 +44,14 @@
                     <i class="mdi-image-filter-2 small"></i>
                     <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="1M"/>
                     <div class="row">
+                        <div class="input-field">
+                            <input type="text" name="title">
+                            <label for="">Title</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="sub_title">
+                            <label for="">Sub Title</label>
+                        </div>
                         <div class="input-field col s12">
                             <button class="btn light-blue darken-1 waves-effect waves-light right" type="submit"
                                     name="action">Submit

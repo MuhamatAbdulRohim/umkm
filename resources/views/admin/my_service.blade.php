@@ -22,41 +22,28 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>image sdfmasldkfj alkdsjfla;kdj adklfjal;kdf</td>
-                                <td>image sdfmasldkfj alkdsjfla;kdj adklfjal;kdf</td>
-                                <td class="center">
-                                    <button class="btn waves-effect waves-light amber"><i
-                                                class="mdi-editor-mode-edit small"></i></button>
-                                    <button class="btn waves-effect waves-light red darken-1"><i
-                                                class="mdi-action-delete small"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>image sdfmasldkfj alkdsjfla;kdj adklfjal;kdf</td>
-                                <td>image sdfmasldkfj alkdsjfla;kdj adklfjal;kdf</td>
-                                <td class="center">
-                                    <button class="btn waves-effect waves-light amber"><i
-                                                class="mdi-editor-mode-edit small"></i></button>
-                                    <button class="btn waves-effect waves-light red darken-1"><i
-                                                class="mdi-action-delete small"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>image sdfmasldkfj alkdsjfla;kdj adklfjal;kdf</td>
-                                <td>image sdfmasldkfj alkdsjfla;kdj adklfjal;kdf</td>
-                                <td class="center">
-                                    <button class="btn waves-effect waves-light amber"><i
-                                                class="mdi-editor-mode-edit small"></i></button>
-                                    <button class="btn waves-effect waves-light red darken-1"><i
-                                                class="mdi-action-delete small"></i></button>
-                                </td>
-                            </tr>
+                            <?php $no = 0; ?>
+                            @foreach($services as $service)
+                                <?php $no = $no + 1; ?>
+                                <tr>
+                                    <td>{{$no}}</td>
+                                    <td>{{$service->service_name}}</td>
+                                    <td>{{$service->description}}</td>
+                                    <td class="center">
+                                        <a href="/adm/edit_service/{{$service->id}}"
+                                           class="btn waves-effect waves-light amber"><i
+                                                    class="mdi-editor-mode-edit small"></i></a>
+                                        <a href="/adm/del_service/{{$service->id}}"
+                                           class="btn waves-effect waves-light red darken-1"><i
+                                                    class="mdi-action-delete small"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
+                        <div>
+                            {!! $services->render() !!}
+                        </div>
                     </div>
                 </div>
             </div>

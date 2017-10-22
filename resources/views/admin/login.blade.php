@@ -11,15 +11,11 @@
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
     <title>Admin-UMKM</title>
 
-    <!-- Favicons-->
-    <link rel="icon" href="{{asset('admin/images/favicon/favicon-32x32.png')}}" sizes="32x32">
-    <!-- Favicons-->
+    <link rel="icon" href="http://www.araydeveloper.com/images/ico/favicon.ico" sizes="32x32">
+
     <link rel="apple-touch-icon-precomposed" href="{{asset('admin/images/favicon/apple-touch-icon-152x152.png')}}">
-    <!-- For iPhone -->
     <meta name="msapplication-TileColor" content="#00bcd4">
     <meta name="msapplication-TileImage" content="{{asset('admin/images/favicon/mstile-144x144.png')}}">
-    <!-- For Windows Phone -->
-
 
     <link href="{{asset('admin/css/materialize.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="{{asset('admin/css/style.min.css')}}" type="text/css" rel="stylesheet" media="screen,projection">
@@ -31,12 +27,6 @@
 </head>
 
 <body class="grey lighten-1">
-
-<!-- Loading -->
-<!-- <div class="page-loader" ">
-  <div class="loader"></div>
-</div> -->
-<!-- End -->
 
 <!--==================================================== CONTENT ====================================================-->
 
@@ -65,7 +55,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <a href="" class="btn teal lighten-1 waves-effect waves-light col s12"><b>Login</b></a>
+                    <a href="/adm" class="btn teal lighten-1 waves-effect waves-light col s12"><b>Login</b></a>
                 </div>
             </div>
             <div class="row">

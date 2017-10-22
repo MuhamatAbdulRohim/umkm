@@ -22,41 +22,29 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="{{asset('admin/images/gallary/1.jpg')}}" class="size-image"></td>
-                                <td>image sdfmasldkfj alkdsjfla;kdj adklfjal;kdf</td>
-                                <td class="center">
-                                    <button class="btn waves-effect waves-light amber"><i
-                                                class="mdi-editor-mode-edit small"></i></button>
-                                    <button class="btn waves-effect waves-light red darken-1"><i
-                                                class="mdi-action-delete small"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><img src="{{asset('admin/images/gallary/2.jpg')}}" class="size-image"></td>
-                                <td>image sdfmasldkfj alkdsjfla;kdj adklfjal;kdf</td>
-                                <td class="center">
-                                    <button class="btn waves-effect waves-light amber"><i
-                                                class="mdi-editor-mode-edit small"></i></button>
-                                    <button class="btn waves-effect waves-light red darken-1"><i
-                                                class="mdi-action-delete small"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><img src="{{asset('admin/images/gallary/4.jpg')}}" class="size-image"></td>
-                                <td>image sdfmasldkfj alkdsjfla;kdj adklfjal;kdf</td>
-                                <td class="center">
-                                    <button class="btn waves-effect waves-light amber"><i
-                                                class="mdi-editor-mode-edit small"></i></button>
-                                    <button class="btn waves-effect waves-light red darken-1"><i
-                                                class="mdi-action-delete small"></i></button>
-                                </td>
-                            </tr>
+                            <?php $no = 0; ?>
+                            @foreach($products as $porduct)
+                                <?php $no = $no + 1; ?>
+                                <tr>
+                                    <td>{{$no}}</td>
+                                    <td><img src="{{asset('admin/images/gallary/'.$porduct->image_url)}}"
+                                             class="size-image"></td>
+                                    <td>{{$porduct->product_name}}</td>
+                                    <td class="center">
+                                        <a href="/adm/edit_galery/{{$porduct->id}}"
+                                           class="btn waves-effect waves-light amber"><i
+                                                    class="mdi-editor-mode-edit small"></i></a>
+                                        <a href="/adm/del_galery/{{$porduct->id}}"
+                                           class="btn waves-effect waves-light red darken-1"><i
+                                                    class="mdi-action-delete small"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
+                        <div>
+                            {!! $products->render() !!}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
                 'id' => 1,
                 'name' => 'Abdul Rohim',
                 'email' => 'abdulrohim@araydeveloper.com',
-                'password' => 'abdulrohim',
+                'password' => bcrypt('abdulrohim'),
                 'created_at' => Carbon::now('Asia/Jakarta')->toDateTimeString(),
                 'updated_at' => Carbon::now('Asia/Jakarta')->toDateTimeString()
             ],
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
                 'id' => 2,
                 'name' => 'Angga Dwi Hariadi',
                 'email' => 'angga@araydeveloper.com',
-                'password' => 'anggadwihariadi',
+                'password' => bcrypt('anggadwihariadi'),
                 'created_at' => Carbon::now('Asia/Jakarta')->toDateTimeString(),
                 'updated_at' => Carbon::now('Asia/Jakarta')->toDateTimeString()
             ],

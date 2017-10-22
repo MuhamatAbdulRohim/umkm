@@ -32,7 +32,9 @@
 
 <div id="login-page" class="row">
     <div class="col s12 z-depth-2 card-panel animated bounceIn">
-        <form class="login-form">
+        <form class="login-form" action="{{ route('login.post') }}" method="POST">
+            {{csrf_field()}}
+
             <div class="row">
                 <div class="input-field col s12 center">
                     <img src="{{asset('admin/images/b.png')}}" alt="" class="circle responsive-img valign profile-image-login">
@@ -42,20 +44,20 @@
             <div class="row margin">
                 <div class="input-field col s12">
                     <i class="mdi-action-account-circle prefix"></i>
-                    <input id="username" type="text">
-                    <label for="username" class="center-align">Username</label>
+                    <input id="email" name="email" type="email">
+                    <label for="email" class="center-align">Email</label>
                 </div>
             </div>
             <div class="row margin">
                 <div class="input-field col s12">
                     <i class="mdi-action-lock prefix"></i>
-                    <input id="password" type="password">
+                    <input id="password" name="password" type="password">
                     <label for="password">Password</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <a href="/adm" class="btn teal lighten-1 waves-effect waves-light col s12"><b>Login</b></a>
+                    <button type="submit" class="btn teal lighten-1 waves-effect waves-light col s12"><b>Login</b></button>
                 </div>
             </div>
             <div class="row">

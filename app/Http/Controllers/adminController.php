@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\banner;
 use App\company;
 use App\product;
 use App\service;
@@ -73,7 +74,7 @@ class adminController extends Controller
             $product->update();
         }
 
-        return back();
+        return redirect(route('index.galery'));
 
     }
 
@@ -108,6 +109,7 @@ class adminController extends Controller
                 'product_name' => 'required',
                 'unit_price' => 'required|numeric',
                 'description' => 'required',
+                'image_url' => 'required|mimetypes:image/*|max:1024'
             ]);
         }
 
@@ -129,7 +131,7 @@ class adminController extends Controller
             }
         }
 
-        return back();
+        return redirect(route('index.galery'));
     }
 
     public function delGalery($id)
@@ -195,6 +197,43 @@ class adminController extends Controller
     {
         $menu = 'slider';
         return view('admin.slider', compact('menu'));
+    }
+
+    public function updateSlide(Request $request)
+    {
+        if ($request->image_url == null){
+            $this->validate($request,[
+                'id' => 'required|exists:banners,id',
+                'title' => 'required',
+                'sub_title' => 'required',
+            ]);
+        }else{
+            $this->validate($request,[
+                'id' => 'required|exists:banners,id',
+                'title' => 'required',
+                'sub_title' => 'required',
+                'image_url' => 'required|mimetypes:image/*|max:1024'
+            ]);
+        }
+
+        $banners = banner::where('id', $request->id)->first();
+        $banners->title = $request->title;
+        $banners->sub_title = $request->sub_title;
+        $banners->updated_at = Carbon::now('Asia/Jakarta')->toDateTimeString();
+        $banners->update();
+
+        if ($request->image_url != null) {
+            $ext = $request->file('image_url')->getClientOriginalExtension();
+            $name = 'bn_' . time() . '.' . $ext;
+
+            if ($banners) {
+                $request->file('image_url')->move(public_path('master/img'), $name);
+                $banners->image_url = $name;
+                $banners->update();
+            }
+        }
+
+        return back();
     }
 
 }

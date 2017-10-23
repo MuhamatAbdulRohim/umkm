@@ -19,46 +19,54 @@
             <div class="col s12 m8 l6">
                 <div class="card-panel z-depth-1">
                     <i class="mdi-image-filter-1 small"></i>
-                    <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="1M"/>
-                    <div class="row">
-                        <div class="input-field">
-                            <input type="text" name="title">
-                            <label for="">Title</label>
+                    <form action="{{ route('update.slide') }}" method="POST" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="1">
+                        <input type="file" name="image_url" id="input-file-max-fs" class="dropify" data-max-file-size="1M"/>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="title">
+                                <label for="">Title</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="sub_title">
+                                <label for="">Sub Title</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <button class="btn light-blue darken-1 waves-effect waves-light right" type="submit"
+                                >Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="input-field">
-                            <input type="text" name="sub_title">
-                            <label for="">Sub Title</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <button class="btn light-blue darken-1 waves-effect waves-light right" type="submit"
-                                    name="action">Submit
-                                <i class="mdi-content-send right"></i>
-                            </button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 
             <div class="col s12 m8 l6">
                 <div class="card-panel z-depth-1">
                     <i class="mdi-image-filter-2 small"></i>
-                    <input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="1M"/>
-                    <div class="row">
-                        <div class="input-field">
-                            <input type="text" name="title">
-                            <label for="">Title</label>
+                    <form action="{{ route('update.slide') }}" method="POST" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="2">
+                        <input type="file" name="image_url" id="input-file-max-fs" class="dropify" data-max-file-size="1M"/>
+                        <div class="row">
+                            <div class="input-field">
+                                <input type="text" name="title">
+                                <label for="">Title</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" name="sub_title">
+                                <label for="">Sub Title</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <button class="btn light-blue darken-1 waves-effect waves-light right" type="submit"
+                                >Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="input-field">
-                            <input type="text" name="sub_title">
-                            <label for="">Sub Title</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <button class="btn light-blue darken-1 waves-effect waves-light right" type="submit"
-                                    name="action">Submit
-                                <i class="mdi-content-send right"></i>
-                            </button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -27,13 +27,6 @@ class BannersSeeder extends Seeder
                 'image_url' => 'bn-2.jpg',
                 'created_at' => Carbon::now('Asia/Jakarta')->toDateTimeString(),
                 'updated_at' => Carbon::now('Asia/Jakarta')->toDateTimeString()
-            ],
-            [
-                'title' => 'Mobile App',
-                'sub_title' => 'Make Your Own App',
-                'image_url' => 'bn-3.jpg',
-                'created_at' => Carbon::now('Asia/Jakarta')->toDateTimeString(),
-                'updated_at' => Carbon::now('Asia/Jakarta')->toDateTimeString()
             ]
         ];
         DB::table('banners')->insert($datas);

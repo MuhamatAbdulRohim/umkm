@@ -24,7 +24,7 @@ Route::group(["prefix" => "/adm", "middleware" => "auth"], function (){
 
     Route::get('/add_galery', 'adminController@addGalery');
     Route::post('/store_galery', 'adminController@storeGalery')->name('post.galery');
-    Route::get('/my_galery', 'adminController@myGalery');
+    Route::get('/my_galery', 'adminController@myGalery')->name('index.galery');
     Route::get('/edit_galery/{id}', 'adminController@editGalery');
     Route::post('/update_galery', 'adminController@updateGalery')->name('update.galery');
     Route::get('/del_galery/{id}', 'adminController@delGalery');
@@ -37,6 +37,7 @@ Route::group(["prefix" => "/adm", "middleware" => "auth"], function (){
     Route::get('/del_service/{id}', 'adminController@delService');
 
     Route::get('/slide', 'adminController@mySlide');
+    Route::post('/slide', 'adminController@updateSlide')->name('update.slide');
 
 });
 

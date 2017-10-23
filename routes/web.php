@@ -14,6 +14,7 @@
 Route::get('/', 'IndexController@index');
 Route::get('login', ['as' => 'login', 'uses' => 'LoginController@login']);
 Route::post('login', ['as' => 'login.post', 'uses' => 'LoginController@postLogin']);
+Route::get('logout', ['as' => 'logout', 'uses' => 'LoginController@logout']);
 
 
 Route::group(["prefix" => "/adm", "middleware" => "auth"], function (){
@@ -22,10 +23,10 @@ Route::group(["prefix" => "/adm", "middleware" => "auth"], function (){
     Route::post('/update_additional', 'adminController@changeAdditionalProfile');
 
     Route::get('/add_galery', 'adminController@addGalery');
-    Route::post('/store_galery', 'adminController@stroreGalery');
+    Route::post('/store_galery', 'adminController@storeGalery')->name('post.galery');
     Route::get('/my_galery', 'adminController@myGalery');
     Route::get('/edit_galery/{id}', 'adminController@editGalery');
-    Route::post('/update_galery', 'adminController@updateGalery');
+    Route::post('/update_galery', 'adminController@updateGalery')->name('update.galery');
     Route::get('/del_galery/{id}', 'adminController@delGalery');
 
     Route::get('/add_service', 'adminController@addService');

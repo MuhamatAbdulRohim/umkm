@@ -2,10 +2,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>UMKM JEMBER</title>
-    <meta name="description" content="UMKM ARAY DEVELOPER">
-    <meta name="keywords" content="UMKM JEMBER">
-    <meta name="author" content="Aray Developer">
+    <title>{{ $nama_toko }}</title>
+    <meta name="description" content="{{ $deskripsi_toko }} bersama UMKM ARAY DEVELOPER">
+    <meta name="keywords" content="{{ $nama_toko }} , UMKM JEMBER, 200 UMKM JEMBER, UMKM TERLARIS, UMKM SUKSES, UMKM Indonesia, Dinas Koperasi">
+    <meta name="author" content="ARAY DEVELOPER">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>

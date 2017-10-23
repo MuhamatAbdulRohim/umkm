@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description"
-          content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
-    <meta name="keywords" content="">
+          content="{{ $deskripsi_toko }}">
+    <meta name="keywords" content="{{ $nama_toko }}">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="orange-text text-darken-4" href="/umkm">
+                        <a class="orange-text text-darken-4" href="{{ route('logout') }}">
                             <i class="mdi-action-exit-to-app"></i><b>&nbsp;&nbsp; Logout</b> </a>
                     </li>
                 </ul>

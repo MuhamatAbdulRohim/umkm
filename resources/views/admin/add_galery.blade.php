@@ -22,8 +22,20 @@
                 <div class="col s12 m12 l12">
                     <div class="card-panel">
                         <div class="row">
-                            <div class="col s12">
+                            <?php
+                                $routes = '';
+                            if ($editProduct == 'ya'){
+                                $routes = 'update.galery';
+                            }else{
+                                $routes = 'post.galery';
+                            }
+                            ?>
+                            <form action="{{ route($routes) }}" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+
+                                <div class="col s12">
                                 <div class="row">
+
                                     <div class="col l6">
                                         <input type="hidden" name="product_id" id="product_id"
                                                @if($editProduct == 'ya') value="{{$product->id}}" @else value="" @endif>
@@ -48,17 +60,18 @@
                                     </div>
                                     <div class="col l6">
                                         <input type="file" accept="image/*" id="input-file-max-fs" class="dropify"
-                                               data-max-file-size="1M" name="image_url" required/>
+                                               data-max-file-size="1M" name="image_url" @if($editProduct == 'ya') @else required @endif/>
                                     </div>
                                 </div>
 
                                 <div class="input-field col s12">
                                     <button class="btn light-blue darken-1 waves-effect waves-light right"
-                                            id="submit_product" name="action">Submit
+                                            id="submit_product" type="submit">Submit
                                         <i class="mdi-content-send right"></i>
                                     </button>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

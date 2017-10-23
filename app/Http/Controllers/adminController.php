@@ -49,6 +49,13 @@ class adminController extends Controller
 
     public function storeGalery(Request $request)
     {
+        $this->validate($request, [
+            'product_name' => 'required',
+            'unit_price' => 'required|numeric',
+            'description' => 'required',
+            'image_url' => 'required|mimetypes:image/*|max:1024'
+        ]);
+
         $product = new product();
         $product->product_name = $request->product_name;
         $product->unit_price = $request->unit_price;
@@ -56,15 +63,17 @@ class adminController extends Controller
         $product->created_at = Carbon::now('Asia/Jakarta')->toDateTimeString();
         $product->updated_at = Carbon::now('Asia/Jakarta')->toDateTimeString();
         $product->save();
-//
-//        $ext = $request->file('image')->getClientOriginalExtension();
-//        $name = 'pd_' . $product->id . '.' . $ext;
-//        $request->file('image')->move('admin/images/gallary/', $name);
-//        $product->image_url = $name;
-//        $product->update();
 
-        $response["message"] = "Input Success !";
-        return response()->json($response, 200);
+        $ext = $request->file('image_url')->getClientOriginalExtension();
+        $name = 'pd_' . time() . '.' . $ext;
+
+        if ($product){
+            $request->file('image_url')->move(public_path('admin/images/gallary/'), $name);
+            $product->image_url = $name;
+            $product->update();
+        }
+
+        return back();
 
     }
 
@@ -75,34 +84,57 @@ class adminController extends Controller
         return view('admin.my_galery', compact('menu', 'products'));
     }
 
-    public function editGalery($id){
-        $product = product::where('id',$id)->first();
+    public function editGalery($id)
+    {
+        $product = product::where('id', $id)->first();
         $menu = 'mygalery';
         $editProduct = 'ya';
         return view('admin.add_galery', compact('menu', 'product', 'editProduct'));
     }
 
-    public function updateGalery(Request $request, $id){
+    public function updateGalery(Request $request)
+    {
         //update
-        $product = product::where('id',$id)->first();
+        if ($request->image_url == null){
+            $this->validate($request,[
+                'product_id' => 'required|exists:products,id',
+                'product_name' => 'required',
+                'unit_price' => 'required|numeric',
+                'description' => 'required',
+            ]);
+        }else{
+            $this->validate($request,[
+                'product_id' => 'required|exists:products,id',
+                'product_name' => 'required',
+                'unit_price' => 'required|numeric',
+                'description' => 'required',
+            ]);
+        }
+
+        $product = product::where('id', $request->product_id)->first();
         $product->product_name = $request->product_name;
         $product->unit_price = $request->unit_price;
         $product->description = $request->description;
         $product->updated_at = Carbon::now('Asia/Jakarta')->toDateTimeString();
         $product->update();
-//
-//        $ext = $request->file('image')->getClientOriginalExtension();
-//        $name = 'pd_' . $product->id . '.' . $ext;
-//        $request->file('image')->move('admin/images/gallary/', $name);
-//        $product->image_url = $name;
-//        $product->update();
 
-        $response["message"] = "Update Success !";
-        return response()->json($response, 200);
+        if ($request->image_url != null) {
+            $ext = $request->file('image_url')->getClientOriginalExtension();
+            $name = 'pd_' . time() . '.' . $ext;
+
+            if ($product) {
+                $request->file('image_url')->move(public_path('admin/images/gallary/'), $name);
+                $product->image_url = $name;
+                $product->update();
+            }
+        }
+
+        return back();
     }
 
-    public function delGalery($id){
-        $product = product::where('id',$id)->first();
+    public function delGalery($id)
+    {
+        $product = product::where('id', $id)->first();
         $product->delete();
         return back();
     }
@@ -114,7 +146,8 @@ class adminController extends Controller
         return view('admin.add_service', compact('menu', 'editService'));
     }
 
-    public function storeService(Request $request){
+    public function storeService(Request $request)
+    {
         $service = new service();
         $service->service_name = $request->service_name;
         $service->description = $request->description;
@@ -132,15 +165,17 @@ class adminController extends Controller
         return view('admin.my_service', compact('menu', 'services'));
     }
 
-    public function editService($id){
+    public function editService($id)
+    {
         $menu = 'myservice';
         $editService = 'ya';
         $service = service::where('id', $id)->first();
         return view('admin.add_service', compact('menu', 'editService', 'service'));
     }
 
-    public function updateService(Request $request){
-        $service = service::where('id',$request->service_id)->first();
+    public function updateService(Request $request)
+    {
+        $service = service::where('id', $request->service_id)->first();
         $service->service_name = $request->service_name;
         $service->description = $request->description;
         $service->updated_at = Carbon::now('Asia/Jakarta')->toDateTimeString();
@@ -149,8 +184,9 @@ class adminController extends Controller
         return redirect('/adm/my_service');
     }
 
-    public function delService($id){
-        $service = service::where('id',$id)->first();
+    public function delService($id)
+    {
+        $service = service::where('id', $id)->first();
         $service->delete();
         return back();
     }

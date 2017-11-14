@@ -157,12 +157,6 @@
                     </div>
 
                     <div class="input-field col s12">
-                        <i class="mdi-maps-place prefix"></i>
-                        <input name="maps" type="text" required value="{{$company->maps}}">
-                        <label for="address">Maps</label>
-                    </div>
-
-                    <div class="input-field col s12">
                         <i class="mdi-action-info prefix"></i>
                         <textarea name="about_company" class="materialize-textarea" length="600"
                                   required>{{$company->about_company}}</textarea>

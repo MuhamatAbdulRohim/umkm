@@ -72,42 +72,46 @@
                 <div class="row">
                     <div class="col s12 m8 l9">
                         <div id="modal3" class="modal">
-                            <div class="modal-content grey lighten-2">
-                                <h5 class="light-blue-text text-darken-1"><i>Change Account</i></h5>
-                                <div id="basic-form" class="section">
-                                    <div class="row">
-                                        <div class="col s12 m12 l12">
-                                            <div class="card-panel">
-                                                <div class="row">
-                                                    <form class="col s12">
+                            <form class="col s12" action="/adm/update_user" method="post">
+                                {{csrf_field()}}
+                                <div class="modal-content grey lighten-2">
+                                    <h5 class="light-blue-text text-darken-1"><i>Change Account</i></h5>
+                                    <div id="basic-form" class="section">
+                                        <div class="row">
+                                            <div class="col s12 m12 l12">
+                                                <div class="card-panel">
+                                                    <div class="row">
                                                         <div class="row">
                                                             <div class="input-field col s12">
                                                                 <i class="mdi-action-account-circle prefix"></i>
-                                                                <input id="uname" type="text">
+                                                                <input id="uname" type="email" name="uname"
+                                                                       value="{{$user->email}}">
                                                                 <label for="uname">Username</label>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12">
                                                                 <i class="mdi-action-lock prefix"></i>
-                                                                <input id="password" type="password">
-                                                                <label for="password">Password</label>
+                                                                <input id="password" type="password" name="password">
+                                                                <label for="password">New Password</label>
                                                             </div>
                                                         </div>
-                                                    </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer  light-blue darken-1">
-                                <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close white-text"><i
-                                            class="mdi-action-highlight-remove prefix"></i> Cancel</a>
-                                <a href="#"
-                                   class="btn-success waves-effect waves-green btn-flat modal-action modal-close white-text"><i
-                                            class="mdi-action-done prefix"></i> Ok</a>
-                            </div>
+                                <div class="modal-footer  light-blue darken-1">
+                                    <a href="#"
+                                       class="waves-effect waves-red btn-flat modal-action modal-close white-text"><i
+                                                class="mdi-action-highlight-remove prefix"></i> Cancel</a>
+                                    <button type="submit"
+                                            class="btn-success waves-effect waves-green btn-flat white-text"><i
+                                                class="mdi-action-done prefix"></i> Ok
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

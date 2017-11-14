@@ -6,6 +6,7 @@ use App\banner;
 use App\company;
 use App\product;
 use App\service;
+use App\users;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,19 @@ class adminController extends Controller
     {
         $menu = 'profile';
         $company = company::where('id', 1)->first();
-        return view('admin.profile', compact('menu', 'company'));
+        $user = users::where('id', 1)->first();
+        return view('admin.profile', compact('menu', 'company', 'user'));
+    }
+
+    public function changeAccount(Request $request)
+    {
+        $user = users::where('id', 1)->first();
+        $user->email = $request->uname;
+        if ($request->password != null) {
+            $user->password = bcrypt($request->password);
+        }
+        $user->update();
+        return redirect('/adm');
     }
 
     public function changeProfile(Request $request)
@@ -45,7 +58,8 @@ class adminController extends Controller
     {
         $menu = 'addgalery';
         $editProduct = 'tidak';
-        return view('admin.add_galery', compact('menu', 'editProduct'));
+        $user = users::where('id', 1)->first();
+        return view('admin.add_galery', compact('menu', 'editProduct', 'user'));
     }
 
     public function storeGalery(Request $request)
@@ -68,7 +82,7 @@ class adminController extends Controller
         $ext = $request->file('image_url')->getClientOriginalExtension();
         $name = 'pd_' . time() . '.' . $ext;
 
-        if ($product){
+        if ($product) {
             $request->file('image_url')->move(public_path('admin/images/gallary/'), $name);
             $product->image_url = $name;
             $product->update();
@@ -90,21 +104,22 @@ class adminController extends Controller
         $product = product::where('id', $id)->first();
         $menu = 'mygalery';
         $editProduct = 'ya';
-        return view('admin.add_galery', compact('menu', 'product', 'editProduct'));
+        $user = users::where('id', 1)->first();
+        return view('admin.add_galery', compact('menu', 'product', 'editProduct', 'user'));
     }
 
     public function updateGalery(Request $request)
     {
         //update
-        if ($request->image_url == null){
-            $this->validate($request,[
+        if ($request->image_url == null) {
+            $this->validate($request, [
                 'product_id' => 'required|exists:products,id',
                 'product_name' => 'required',
                 'unit_price' => 'required|numeric',
                 'description' => 'required',
             ]);
-        }else{
-            $this->validate($request,[
+        } else {
+            $this->validate($request, [
                 'product_id' => 'required|exists:products,id',
                 'product_name' => 'required',
                 'unit_price' => 'required|numeric',
@@ -145,7 +160,8 @@ class adminController extends Controller
     {
         $menu = 'addservice';
         $editService = 'tidak';
-        return view('admin.add_service', compact('menu', 'editService'));
+        $user = users::where('id', 1)->first();
+        return view('admin.add_service', compact('menu', 'editService', 'user'));
     }
 
     public function storeService(Request $request)
@@ -164,7 +180,8 @@ class adminController extends Controller
     {
         $menu = 'myservice';
         $services = service::where('id', '<>', 0)->simplePaginate(5);
-        return view('admin.my_service', compact('menu', 'services'));
+        $user = users::where('id', 1)->first();
+        return view('admin.my_service', compact('menu', 'services', 'user'));
     }
 
     public function editService($id)
@@ -172,7 +189,8 @@ class adminController extends Controller
         $menu = 'myservice';
         $editService = 'ya';
         $service = service::where('id', $id)->first();
-        return view('admin.add_service', compact('menu', 'editService', 'service'));
+        $user = users::where('id', 1)->first();
+        return view('admin.add_service', compact('menu', 'editService', 'service', 'user'));
     }
 
     public function updateService(Request $request)
@@ -196,19 +214,20 @@ class adminController extends Controller
     public function mySlide()
     {
         $menu = 'slider';
-        return view('admin.slider', compact('menu'));
+        $user = users::where('id', 1)->first();
+        return view('admin.slider', compact('menu', 'user'));
     }
 
     public function updateSlide(Request $request)
     {
-        if ($request->image_url == null){
-            $this->validate($request,[
+        if ($request->image_url == null) {
+            $this->validate($request, [
                 'id' => 'required|exists:banners,id',
                 'title' => 'required',
                 'sub_title' => 'required',
             ]);
-        }else{
-            $this->validate($request,[
+        } else {
+            $this->validate($request, [
                 'id' => 'required|exists:banners,id',
                 'title' => 'required',
                 'sub_title' => 'required',

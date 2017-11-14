@@ -4,7 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{{ $nama_toko }}</title>
     <meta name="description" content="{{ $deskripsi_toko }} bersama UMKM ARAY DEVELOPER">
-    <meta name="keywords" content="{{ $nama_toko }} , UMKM JEMBER, 200 UMKM JEMBER, UMKM TERLARIS, UMKM SUKSES, UMKM Indonesia, Dinas Koperasi">
+    <meta name="keywords"
+          content="{{ $nama_toko }} , UMKM JEMBER, 200 UMKM JEMBER, UMKM TERLARIS, UMKM SUKSES, UMKM Indonesia, Dinas Koperasi">
     <meta name="author" content="ARAY DEVELOPER">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -198,15 +199,18 @@
             </div>
             <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms"
                  data-wow-delay="300ms">
-                <iframe src="{{$company->maps}}"
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31593.731500452395!2d113.65729808807369!3d-8.180938747315425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6943a42369d8f%3A0x8bd003425ec58c76!2sAlun+Alun+Kota+Jember!5e0!3m2!1sid!2sid!4v1510661292879"
                         width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 wow fadeInRight animated" data-wow-duration="500ms"
                  data-wow-delay="600ms">
                 <ul class="footer-social">
-                    <li><a target="{{$company->instagram_url}}" href="{{$company->instagram_url}}"><i class="fa fa-instagram fa-2x"></i></a></li>
-                    <li><a target="{{$company->twitter_url}}" href="{{$company->twitter_url}}"><i class="fa fa-twitter fa-2x"></i></a></li>
-                    <li><a target="{{$company->facebook_url}} "href="{{$company->facebook_url}}"><i class="fa fa-facebook fa-2x"></i></a></li>
+                    <li><a target="{{$company->instagram_url}}" href="{{$company->instagram_url}}"><i
+                                    class="fa fa-instagram fa-2x"></i></a></li>
+                    <li><a target="{{$company->twitter_url}}" href="{{$company->twitter_url}}"><i
+                                    class="fa fa-twitter fa-2x"></i></a></li>
+                    <li><a target="{{$company->facebook_url}} " href="{{$company->facebook_url}}"><i
+                                    class="fa fa-facebook fa-2x"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -216,11 +220,9 @@
 <footer id="footer" class="footer">
     <div class="container">
         <div class="col-md-12">
-            <center><img class="fot" src="{{asset('master/img/logo.png')}}" alt=""></center>
-
             <p class="copyright text-center">
-                Copyright © 2017 <a target="http://araydeveloper.com/" href="http://araydeveloper.com/">Aray Developer</a>. All rights reserved. Powered &
-                developed by <a target="http://araydeveloper.com/" href="http://araydeveloper.com/">Aray Developer</a>
+                Copyright © 2017 <a href="http://araydeveloper.com/">Aray Developer</a>. All rights reserved. Powered &
+                developed by <a href="http://araydeveloper.com/">Aray Developer</a>
             </p>
         </div>
     </div>

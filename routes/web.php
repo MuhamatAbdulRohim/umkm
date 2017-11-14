@@ -20,6 +20,7 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'LoginController@logout']);
 Route::group(["prefix" => "/adm", "middleware" => "auth"], function (){
     Route::get('/', 'adminController@index')->name('index.admin');
     Route::post('/update_account', 'adminController@changeProfile');
+    Route::post('/update_user', 'adminController@changeAccount');
     Route::post('/update_additional', 'adminController@changeAdditionalProfile');
 
     Route::get('/add_galery', 'adminController@addGalery');
